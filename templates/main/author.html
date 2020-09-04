@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% block content %}
+ {% include 'main/navbar.html' %}
+  <div class="container">
+      <div class="row">
+          <h5>Name : {{ author.name }}</h5>
+           <h6>Aritcle written by</h6>
+           {% for article in author.article_set.all %}
+           <li>
+            <a href="{% url 'get_article' article.id %}">{{ article.title }}</a>
+
+           </li>
+             
+
+           {% endfor %}
+
+      </div>
+      
+  </div>
+{% endblock %}

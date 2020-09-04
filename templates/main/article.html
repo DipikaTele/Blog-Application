@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% block content %}
+ {% include 'main/navbar.html' %}
+  <div class="container">
+      <h4 class="center-align">{{ article.title }}</h4>
+        
+        <h6 class="right-align">Created at : {{ article.createdAt }}</h6>
+        <h6>Written By:
+           
+                {% for author in article.authors.all%} 
+               
+                   <a href="{% url 'author' author.id %}">{{ author }}</a>
+               
+            {% endfor %}
+            
+               
+        </h6>
+        <div class="row">
+            <p>
+                {{ article.content }}
+            </p>
+        </div>
+      
+  </div>
+{% endblock %}
